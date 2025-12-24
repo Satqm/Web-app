@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Satyam Kumar | CA Finalist & Data Analytics Professional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --sunlife-blue: #0056A6;
+      --sunlife-blue-dark: #003E7E;
+      --sunlife-blue-light: #0073CE;
+      --sunlife-aqua: #00A3E0;
+      --sunlife-teal: #00B5B5;
+      --sunlife-gray: #F1F4F8;
+      --sunlife-dark: #1A2B3C;
+      --sunlife-text: #333333;
+      --sunlife-muted: #6C757D;
+      --accent-gradient: linear-gradient(135deg, var(--sunlife-blue), var(--sunlife-aqua), var(--sunlife-teal));
+      --card-shadow: 0 8px 30px rgba(0, 86, 166, 0.12);
+      --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      color: var(--sunlife-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Sun Life inspired header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 86, 166, 0.1);
+      padding: 1rem 0;
+      transform: translateY(0);
+      transition: var(--transition-smooth);
+    }
+
+    header.scrolled {
+      padding: 0.7rem 0;
+      box-shadow: 0 5px 20px rgba(0, 86, 166, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--sunlife-blue);
+      text-decoration: none;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--sunlife-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--sunlife-blue);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--sunlife-blue);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 180px 2rem 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards 0.3s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--sunlife-dark);
+    }
+
+    .hero-gradient {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--sunlife-muted);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .badge {
+      padding: 0.6rem 1.2rem;
+      background: white;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .badge:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 86, 166, 0.15);
+    }
+
+    .badge i {
+      color: var(--sunlife-aqua);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
+      box-shadow: 0 10px 25px rgba(0, 86, 166, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 86, 166, 0.4);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--sunlife-blue);
+      border: 2px solid var(--sunlife-blue);
+    }
+
+    .btn-secondary:hover {
+      background: var(--sunlife-blue);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .profile-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .profile-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 86, 166, 0.2);
+      transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+      transition: var(--transition-smooth);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: perspective(1000px) rotateY(-10deg) rotateX(5deg) translateY(0); }
+      50% { transform: perspective(1000px) rotateY(-10deg) rotateX(5deg) translateY(-15px); }
+    }
+
+    .profile-frame:hover {
+      transform: perspective(1000px) rotateY(0) rotateX(0) scale(1.02);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .floating-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .floating-element {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      animation: floatElement 15s infinite linear;
+    }
+
+    @keyframes floatElement {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(calc(100vw - 100px), calc(100vh - 100px)) rotate(360deg); }
+    }
+
+    .fe1 {
+      background: var(--sunlife-aqua);
+      top: -20px;
+      right: -20px;
+      animation-delay: 0s;
+    }
+
+    .fe2 {
+      background: var(--sunlife-teal);
+      bottom: 30px;
+      left: -30px;
+      animation-delay: -5s;
+    }
+
+    .fe3 {
+      background: var(--sunlife-blue);
+      bottom: -20px;
+      right: 30%;
+      animation-delay: -10s;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 100px 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--sunlife-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-title .underline {
+      width: 80px;
+      height: 4px;
+      background: var(--accent-gradient);
+      margin: 0 auto;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .underline::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      60% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    /* Experience Cards */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .experience-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      border-top: 4px solid transparent;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 86, 166, 0.15);
+      border-top: 4px solid var(--sunlife-blue);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .exp-title {
+      font-size: 1.4rem;
+      color: var(--sunlife-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-company {
+      color: var(--sunlife-blue);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .exp-period {
+      background: var(--sunlife-gray);
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--sunlife-blue);
+    }
+
+    .exp-desc {
+      color: var(--sunlife-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      padding: 0.4rem 1rem;
+      background: var(--sunlife-gray);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      color: var(--sunlife-blue);
+      font-weight: 600;
+    }
+
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition-smooth);
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-category h3 {
+      color: var(--sunlife-blue);
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill-item {
+      padding: 0.8rem 1.2rem;
+      background: var(--sunlife-gray);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition-smooth);
+    }
+
+    .skill-item:hover {
+      background: var(--sunlife-blue);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .skill-item i {
+      color: var(--sunlife-aqua);
+    }
+
+    .skill-item:hover i {
+      color: white;
+    }
+
+    /* Education Timeline */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--sunlife-gray);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      margin-bottom: 3rem;
+      position: relative;
+      width: calc(50% - 40px);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .timeline-item:nth-child(odd) {
+      margin-left: auto;
+    }
+
+    .timeline-item:nth-child(even) {
+      margin-right: auto;
+    }
+
+    .timeline-item.visible {
+      animation: slideIn 0.8s forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .timeline-content {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .timeline-content:hover {
+      transform: translateX(10px);
+    }
+
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      transform: rotate(45deg);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before {
+      left: -10px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::before {
+      right: -10px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      border: 4px solid white;
+      box-shadow: 0 0 0 4px var(--sunlife-blue-light);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -50px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -50px;
+    }
+
+    .timeline-date {
+      color: var(--sunlife-blue);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--card-shadow);
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      padding: 1.5rem;
+      background: var(--sunlife-gray);
+      border-radius: var(--radius-md);
+      transition: var(--transition-smooth);
+    }
+
+    .contact-card:hover {
+      background: var(--sunlife-blue);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .contact-card:hover i {
+      color: white;
+    }
+
+    .contact-card i {
+      font-size: 2rem;
+      color: var(--sunlife-blue);
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--sunlife-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sunlife-blue);
+      font-size: 1.2rem;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background: var(--sunlife-blue);
+      color: white;
+      transform: translateY(-5px) scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--sunlife-dark);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      
+      .profile-frame {
+        transform: none;
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .mobile-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: var(--transition-smooth);
+      }
+      
+      .mobile-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-item {
+        width: calc(100% - 80px);
+        margin-left: 80px !important;
+      }
+      
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: -60px;
+      }
+      
+      .timeline-item:nth-child(even) .timeline-content::before {
+        right: auto;
+        left: -10px;
+      }
+    }
+
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="nav-container">
+      <a href="#hero" class="logo">
+        <div class="logo-circle">SK</div>
+        <span>Satyam Kumar</span>
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-badges">
+        <div class="badge">
+          <i class="fas fa-graduation-cap"></i>
+          CA Finalist
+        </div>
+        <div class="badge">
+          <i class="fas fa-chart-line"></i>
+          Data Analytics
+        </div>
+        <div class="badge">
+          <i class="fas fa-search-dollar"></i>
+          Internal Audit
+        </div>
+      </div>
+      
+      <h1>
+        Transforming <span class="hero-gradient">Financial Data</span><br>
+        Into Strategic Insights
+      </h1>
+      
+      <p class="hero-subtitle">
+        CA Finalist and industrial trainee specializing in internal audit, risk assessment, taxation, and data analytics. 
+        Experienced in leveraging Excel, Power BI, Tableau, and automation to strengthen governance and reporting.
+      </p>
+      
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i>
+          Connect With Me
+        </a>
+        <a href="SATYAM (1) (1).pdf" class="btn btn-secondary" download="Satyam_Kumar_Resume.pdf">
+          <i class="fas fa-download"></i>
+          Download Resume
+        </a>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="profile-container">
+        <div class="profile-frame">
+          <img src="Satyam.jpg" alt="Satyam Kumar" class="profile-img">
+        </div>
+        
+        <div class="floating-elements">
+          <div class="floating-element fe1">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <div class="floating-element fe2">
+            <i class="fas fa-file-invoice-dollar"></i>
+          </div>
+          <div class="floating-element fe3">
+            <i class="fas fa-database"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="fade-in">
+    <div class="section-title">
+      <h2>About Me</h2>
+      <div class="underline"></div>
+    </div>
+    
+    <div class="contact-container">
+      <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+        Passionate to establish myself as a strong Internal Audit & Finance professional through being an integral part 
+        of a growth-oriented organization. I believe in continuous learning and am willing to improve with experience.
+      </p>
+      
+      <div class="contact-info">
+        <div class="contact-card">
+          <i class="fas fa-bullseye"></i>
+          <h3>Career Objective</h3>
+          <p>To contribute to organizational development while upgrading my skills and knowledge in audit & finance.</p>
+        </div>
+        
+        <div class="contact-card">
+          <i class="fas fa-basketball-ball"></i>
+          <h3>Hobbies & Interests</h3>
+          <p>Passionate about basketball, enhancing teamwork and strategic thinking. Avid learner of new technologies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="fade-in">
+    <div class="section-title">
+      <h2>Work Experience</h2>
+      <div class="underline"></div>
+    </div>
+    
+    <div class="experience-grid">
+      <!-- Experience 1 -->
+      <div class="experience-card">
+        <div class="exp-header">
+          <div>
+            <h3 class="exp-title">Industrial Trainee</h3>
+            <p class="exp-company">Sun Life · Data Analytics & Internal Audit</p>
+          </div>
+          <span class="exp-period">Jun 2025 - Present</span>
+        </div>
+        <p class="exp-desc">
+          Working at the intersection of internal audit and analytics to enhance risk assessment, 
+          compliance monitoring, and operational effectiveness across business processes.
+        </p>
+        <div class="tags">
+          <span class="tag">Internal Audit</span>
+          <span class="tag">Data Analytics</span>
+          <span class="tag">Risk Assessment</span>
+          <span class="tag">Compliance</span>
+        </div>
+      </div>
+      
+      <!-- Experience 2 -->
+      <div class="experience-card">
+        <div class="exp-header">
+          <div>
+            <h3 class="exp-title">Article Trainee</h3>
+            <p class="exp-company">MGB Advisors Pvt Ltd · Internal Audit</p>
+          </div>
+          <span class="exp-period">May 2024 - Present</span>
+        </div>
+        <p class="exp-desc">
+          Assisted in Internal Audit & IFC/ICFR for processes like P2P, O2C, H2R, F&A, Fixed Assets, 
+          Treasury, Statutory compliance for multiple companies across industries.
+        </p>
+        <div class="tags">
+          <span class="tag">IFC Testing</span>
+          <span class="tag">Risk Assessment</span>
+          <span class="tag">Compliance</span>
+          <span class="tag">Financial Accuracy</span>
+        </div>
+      </div>
+      
+      <!-- Experience 3 -->
+      <div class="experience-card">
+        <div class="exp-header">
+          <div>
+            <h3 class="exp-title">Audit & Analytics</h3>
+            <p class="exp-company">Multiple Client Exposure</p>
+          </div>
+          <span class="exp-period">2024 - Present</span>
+        </div>
+        <p class="exp-desc">
+          Gained exposure across various industries including OLX, Shriram Automall, ZEE Media, 
+          Earth Rhythm/Nykaa, Venus Sugar, and Grew Energy.
+        </p>
+        <div class="tags">
+          <span class="tag">SOP Understanding</span>
+          <span class="tag">Concurrent Audit</span>
+          <span class="tag">Ratio Analysis</span>
+          <span class="tag">Inventory Forecasting</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="fade-in">
+    <div class="section-title">
+      <h2>Technical Skills</h2>
+      <div class="underline"></div>
+    </div>
+    
+    <div class="skills-container">
+      <!-- Analytics & Automation -->
+      <div class="skill-category">
+        <h3><i class="fas fa-chart-line"></i> Analytics & Automation</h3>
+        <div class="skill-list">
+          <div class="skill-item">
+            <i class="fab fa-python"></i>
+            Python
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-file-excel"></i>
+            Advanced Excel
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-code"></i>
+            VBA
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-chart-bar"></i>
+            Power BI
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-chart-area"></i>
+            Tableau
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-robot"></i>
+            Power Query
+          </div>
+        </div>
+      </div>
+      
+      <!-- Audit & Finance -->
+      <div class="skill-category">
+        <h3><i class="fas fa-search-dollar"></i> Audit, Tax & Governance</h3>
+        <div class="skill-list">
+          <div class="skill-item">
+            <i class="fas fa-balance-scale"></i>
+            Internal Audit
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-file-invoice-dollar"></i>
+            Taxation
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-hand-holding-usd"></i>
+            Financial Management
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-shield-alt"></i>
+            Risk & Controls
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-gavel"></i>
+            Company Law
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-calculator"></i>
+            Ind AS
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Certifications -->
+    <div class="skill-category" style="margin-top: 2rem;">
+      <h3><i class="fas fa-certificate"></i> Certifications & Training</h3>
+      <div class="skill-list">
+        <div class="skill-item">
+          <i class="fas fa-robot"></i>
+          BCG GenAI - Financial Chatbot
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-chart-line"></i>
+          KPMG Audit
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-file-excel"></i>
+          Excel Skills for Business
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-certificate"></i>
+          NISM Certifications
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-laptop-code"></i>
+          ICTSS - IT Course (ICAI)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="fade-in">
+    <div class="section-title">
+      <h2>Education</h2>
+      <div class="underline"></div>
+    </div>
+    
+    <div class="timeline">
+      <!-- Education 1 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2022 - Present</div>
+          <h3>CA Intermediate</h3>
+          <p>Institute of Chartered Accountants of India (ICAI)</p>
+          <p><strong>Group 1:</strong> 213 | <strong>Group 2:</strong> 200</p>
+          <p>Exemptions in Corporate Law, FM and Eco</p>
+        </div>
+      </div>
+      
+      <!-- Education 2 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2021 - 2024</div>
+          <h3>BA Prog (Commerce + Economics)</h3>
+          <p>Shaheed Bhagat Singh College, Delhi University</p>
+          <p>CGPA: 7.4</p>
+        </div>
+      </div>
+      
+      <!-- Education 3 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2021</div>
+          <h3>Class 12th (CBSE)</h3>
+          <p>Jawahar Navodaya Vidyalaya, Sheikhpura</p>
+          <p>Percentage: 92.6% | School Topper</p>
+        </div>
+      </div>
+      
+      <!-- Education 4 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2019</div>
+          <h3>Class 10th (CBSE)</h3>
+          <p>Jawahar Navodaya Vidyalaya, Sheikhpura</p>
+          <p>Percentage: 92%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="fade-in">
+    <div class="section-title">
+      <h2>Get In Touch</h2>
+      <div class="underline"></div>
+      <p style="margin-top: 1rem; color: var(--sunlife-muted); max-width: 600px; margin: 1rem auto;">
+        Open to roles in internal audit, data analytics, risk management, and FP&A. Available for relocation and flexible working hours.
+      </p>
+    </div>
+    
+    <div class="contact-container">
+      <div class="contact-info">
+        <a href="mailto:satqm2991@gmail.com" class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p>satqm2991@gmail.com</p>
+        </a>
+        
+        <a href="tel:+919142300129" class="contact-card">
+          <i class="fas fa-phone"></i>
+          <h3>Phone</h3>
+          <p>+91 91423 00129</p>
+        </a>
+        
+        <div class="contact-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Location</h3>
+          <p>Gurugram, Haryana, India</p>
+          <p>Open to Relocation</p>
+        </div>
+      </div>
+      
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/satyam-kumar5286o" class="social-icon" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:satqm2991@gmail.com" class="social-icon">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com" class="social-icon" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://twitter.com" class="social-icon" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="SATYAM (1) (1).pdf" class="social-icon" download="Satyam_Kumar_Resume.pdf">
+          <i class="fas fa-download"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="logo" style="justify-content: center; margin-bottom: 1.5rem;">
+        <div class="logo-circle">SK</div>
+        <span style="color: white; font-size: 1.8rem;">Satyam Kumar</span>
+      </div>
+      
+      <p style="max-width: 600px; margin: 0 auto; opacity: 0.9;">
+        CA Finalist | Data Analytics | Internal Audit | Risk Management | Financial Governance
+      </p>
+      
+      <div class="social-links" style="margin-top: 2rem;">
+        <a href="https://www.linkedin.com/in/satyam-kumar5286o" class="social-icon" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:satqm2991@gmail.com" class="social-icon">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="SATYAM (1) (1).pdf" class="social-icon" download="Satyam_Kumar_Resume.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+      </div>
+      
+      <div class="copyright">
+        &copy; <span id="currentYear"></span> Satyam Kumar. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Scroll animation
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // For timeline items, add delay
+          if (entry.target.classList.contains('timeline-item')) {
+            const index = Array.from(timelineItems).indexOf(entry.target);
+            entry.target.style.animationDelay = `${index * 0.2}s`;
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(el => observer.observe(el));
+    timelineItems.forEach(el => observer.observe(el));
+    
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
